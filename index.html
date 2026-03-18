@@ -3,13 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Alueuropa | Gestión de chatarra de aluminio para talleres y almacenes</title>
+  <title>Alueuropa | Gestión de chatarra de aluminio</title>
   <meta
     name="description"
-    content="Solución B2B de Alueuropa para la gestión, clasificación y valorización de chatarra de aluminio dirigida a talleres, carpinterías metálicas y almacenes de aluminio para construcción."
+    content="Servicio de Alueuropa para ayudar a talleres, carpinterías metálicas y almacenes de aluminio a organizar y gestionar mejor su chatarra."
   />
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -22,6 +21,7 @@
       --line: #e2e8f0;
       --soft: #f8fafc;
       --blue: #1d4ed8;
+      --blue-soft: #eff6ff;
       --emerald: #059669;
       --white: #ffffff;
     }
@@ -32,44 +32,13 @@
 
     body {
       font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: var(--soft);
+      background: #ffffff;
       color: var(--navy);
     }
 
     .shell {
       max-width: 1240px;
       margin: 0 auto;
-    }
-
-    .glass {
-      background: rgba(255, 255, 255, 0.78);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-    }
-
-    .card-shadow {
-      box-shadow: 0 18px 50px rgba(15, 23, 42, 0.08);
-    }
-
-    .hero-overlay {
-      background: linear-gradient(90deg, rgba(2, 6, 23, 0.84) 0%, rgba(15, 23, 42, 0.72) 45%, rgba(15, 23, 42, 0.35) 100%);
-    }
-
-    .brand-mark {
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, #1d4ed8 0%, #0f766e 100%);
-      display: grid;
-      place-items: center;
-      box-shadow: 0 12px 28px rgba(29, 78, 216, 0.28);
-    }
-
-    .brand-mark span {
-      color: white;
-      font-weight: 800;
-      letter-spacing: -0.04em;
-      font-size: 0.9rem;
     }
 
     .section-kicker {
@@ -81,13 +50,34 @@
       letter-spacing: 0.12em;
       font-weight: 700;
       color: var(--blue);
-      background: rgba(29, 78, 216, 0.08);
+      background: var(--blue-soft);
       padding: 0.5rem 0.9rem;
       border-radius: 999px;
     }
 
+    .card-shadow {
+      box-shadow: 0 18px 50px rgba(15, 23, 42, 0.06);
+    }
+
+    .brand-mark {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #1d4ed8 0%, #0f766e 100%);
+      display: grid;
+      place-items: center;
+      box-shadow: 0 12px 28px rgba(29, 78, 216, 0.18);
+    }
+
+    .brand-mark span {
+      color: white;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      font-size: 1rem;
+    }
+
     .metric-card {
-      border: 1px solid rgba(226, 232, 240, 0.9);
+      border: 1px solid rgba(226, 232, 240, 0.95);
       background: white;
       border-radius: 1.5rem;
       padding: 1.5rem;
@@ -97,13 +87,16 @@
       position: relative;
       overflow: hidden;
       border-radius: 1.75rem;
-      min-height: 300px;
+      min-height: 280px;
+      background: #f8fafc;
+      border: 1px solid rgba(226, 232, 240, 0.95);
     }
 
     .image-card img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      display: block;
     }
 
     .image-card::after {
@@ -122,135 +115,193 @@
       color: white;
     }
 
-    .step-line {
-      position: absolute;
-      top: 1.5rem;
-      bottom: 1.5rem;
-      left: 1rem;
-      width: 2px;
-      background: linear-gradient(to bottom, #bfdbfe, #cbd5e1);
+    .plain-image {
+      overflow: hidden;
+      border-radius: 1.75rem;
+      border: 1px solid rgba(226, 232, 240, 0.95);
+      background: #f8fafc;
     }
 
-    .chart-box {
-      position: relative;
+    .plain-image img {
       width: 100%;
-      height: 340px;
-    }
-
-    .chart-box canvas {
+      height: 100%;
+      min-height: 280px;
+      object-fit: cover;
       display: block;
     }
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 2rem;
+    .soft-panel {
+      border: 1px solid rgba(226, 232, 240, 0.95);
+      background: #ffffff;
+      border-radius: 2rem;
+      padding: 2rem;
+    }
+
+    .icon-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--emerald);
+      margin-top: 0.6rem;
+      flex: 0 0 auto;
     }
 
     .contact-link {
-      color: rgba(255,255,255,0.95);
-      text-decoration: underline;
-      text-underline-offset: 4px;
+      color: var(--blue);
+      font-weight: 600;
+      text-decoration: none;
+      word-break: break-word;
     }
 
-    @media (max-width: 1024px) {
-      .hero-grid {
-        grid-template-columns: 1fr;
-      }
+    .contact-link:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body class="antialiased selection:bg-blue-100 selection:text-blue-900">
 
-  <header class="sticky top-0 z-50 border-b border-slate-200/70 bg-white/85 backdrop-blur-xl">
-    <div class="shell px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between py-4">
-        <a href="#top" class="flex items-center gap-3">
-          <div class="brand-mark"><span>AL</span></div>
+  <main>
+
+    <section class="bg-white">
+      <div class="shell px-4 sm:px-6 lg:px-8 pt-10 pb-16 md:pt-14 md:pb-20">
+        <div class="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <div>
-            <div class="text-sm font-semibold tracking-[0.18em] text-slate-500 uppercase">Alueuropa</div>
-            <div class="text-xs text-slate-400">Gestión de chatarra de aluminio</div>
-          </div>
-        </a>
+            <div class="flex items-center gap-4">
+              <div class="brand-mark"><span>AL</span></div>
+              <div>
+                <div class="text-sm font-semibold tracking-[0.18em] text-slate-500 uppercase">Alueuropa</div>
+                <div class="text-sm text-slate-400">Gestión de chatarra de aluminio</div>
+              </div>
+            </div>
 
-        <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-600">
-          <a class="transition hover:text-slate-950" href="#solucion">Solución</a>
-          <a class="transition hover:text-slate-950" href="#ventajas">Ventajas</a>
-          <a class="transition hover:text-slate-950" href="#proceso">Proceso</a>
-          <a class="transition hover:text-slate-950" href="#resultados">Resultados</a>
-          <a class="transition hover:text-slate-950" href="#contacto">Contacto</a>
-        </nav>
+            <span class="section-kicker mt-8">Servicio para talleres y almacenes de aluminio</span>
 
-        <a href="#contacto" class="hidden sm:inline-flex items-center justify-center rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800">
-          Solicitar valoración
-        </a>
-      </div>
-    </div>
-  </header>
-
-  <main id="top">
-    <section class="relative isolate overflow-hidden">
-      <div class="absolute inset-0">
-        <img
-          src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=1600&q=80"
-          alt="Reciclaje y clasificación de metal y aluminio"
-          class="h-full w-full object-cover"
-        />
-        <div class="hero-overlay absolute inset-0"></div>
-      </div>
-
-      <div class="shell relative px-4 sm:px-6 lg:px-8 py-16 md:py-24 lg:py-28">
-        <div class="hero-grid items-end">
-          <div class="max-w-3xl text-white">
-            <span class="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-blue-100">
-              Solución B2B para talleres y almacenes de aluminio
-            </span>
-            <h1 class="mt-6 text-4xl font-extrabold leading-tight sm:text-5xl lg:text-6xl">
-              Una gestión más clara y profesional para tu chatarra de aluminio
+            <h1 class="mt-6 text-4xl font-extrabold leading-tight tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
+              Saca más partido a tu chatarra de aluminio
             </h1>
-            <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-200">
-              En Alueuropa planteamos una propuesta orientada a talleres, carpinterías metálicas y almacenes de aluminio del sector construcción, con foco en clasificación, trazabilidad documental y mejora operativa.
+
+            <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
+              En Alueuropa ayudamos a talleres, carpinterías metálicas y almacenes de aluminio a tener el material más ordenado, mejor separado y más controlado.
+            </p>
+
+            <p class="mt-4 max-w-2xl text-lg leading-8 text-slate-600">
+              La idea es sencilla: menos acumulación, más orden y una atención clara y directa.
             </p>
 
             <div class="mt-8 flex flex-col gap-4 sm:flex-row">
-              <a href="#ventajas" class="inline-flex items-center justify-center rounded-full bg-emerald-500 px-7 py-4 text-sm font-semibold text-white shadow-lg shadow-emerald-900/20 transition hover:bg-emerald-400">
-                Ver propuesta de valor
+              <a href="mailto:alueuropa@alueuropa.com" class="inline-flex items-center justify-center rounded-full bg-blue-700 px-7 py-4 text-sm font-semibold text-white transition hover:bg-blue-800">
+                Pedir información
               </a>
-              <a href="#proceso" class="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-7 py-4 text-sm font-semibold text-white transition hover:bg-white/20">
-                Cómo se plantea
+              <a href="mailto:elombardia@alueuropa.com" class="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-7 py-4 text-sm font-semibold text-slate-900 transition hover:bg-slate-50">
+                Contactar con Alueuropa
               </a>
+            </div>
+
+            <div class="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+              <div class="metric-card card-shadow">
+                <div class="text-3xl font-extrabold text-slate-950">95%</div>
+                <div class="mt-1 text-sm text-slate-500">Ahorro energético por reciclaje</div>
+              </div>
+              <div class="metric-card card-shadow">
+                <div class="text-3xl font-extrabold text-slate-950">Más orden</div>
+                <div class="mt-1 text-sm text-slate-500">Mejor organización del material</div>
+              </div>
+              <div class="metric-card card-shadow">
+                <div class="text-3xl font-extrabold text-slate-950">Más control</div>
+                <div class="mt-1 text-sm text-slate-500">Seguimiento más claro</div>
+              </div>
+              <div class="metric-card card-shadow">
+                <div class="text-3xl font-extrabold text-slate-950">Empresas</div>
+                <div class="mt-1 text-sm text-slate-500">Servicio pensado para profesionales</div>
+              </div>
             </div>
           </div>
 
-          <div class="grid gap-4">
-            <div class="glass card-shadow rounded-3xl border border-white/30 p-6">
-              <div class="text-sm font-semibold uppercase tracking-[0.16em] text-slate-500">Indicadores clave</div>
-              <div class="mt-5 grid grid-cols-2 gap-4">
-                <div class="rounded-2xl bg-white p-4">
-                  <div class="text-3xl font-extrabold text-slate-950">95%</div>
-                  <div class="mt-1 text-sm text-slate-500">Ahorro energético por reciclaje</div>
+          <div>
+            <article class="image-card card-shadow min-h-[560px]">
+              <img
+                src="https://scrapx.es/wp-content/uploads/2023/11/aluminio-perfil-anodizado-pintado-lacado.jpg"
+                alt="Chatarra de perfiles de aluminio anodizado, pintado y lacado"
+              />
+              <div class="image-card-content">
+                <h2 class="text-2xl font-bold">Una gestión más sencilla y más clara</h2>
+                <p class="mt-3 text-sm leading-7 text-slate-200">
+                  Queremos ayudarte a separar mejor el material, aprovechar mejor el espacio y trabajar con más comodidad en el día a día.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white">
+      <div class="shell px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+        <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+          <div>
+            <span class="section-kicker">Nuestra propuesta</span>
+            <h2 class="mt-5 text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">
+              La chatarra de aluminio no debería estorbar ni ocupar más espacio del necesario
+            </h2>
+            <p class="mt-5 text-lg leading-8 text-slate-600">
+              En muchos talleres y almacenes, la chatarra se va acumulando sin un sistema claro. Eso complica el trabajo diario, ocupa sitio y hace más difícil llevar un buen control del material.
+            </p>
+
+            <p class="mt-4 text-lg leading-8 text-slate-600">
+              Nuestra propuesta busca poner orden, facilitar la gestión y ayudarte a trabajar con más comodidad.
+            </p>
+
+            <div class="mt-8 grid gap-4">
+              <div class="soft-panel card-shadow">
+                <div class="flex items-start gap-3">
+                  <span class="icon-dot"></span>
+                  <div>
+                    <h3 class="text-lg font-bold text-slate-950">Más control</h3>
+                    <p class="mt-2 text-sm leading-7 text-slate-600">Sabrás mejor qué material tienes y cómo se está organizando.</p>
+                  </div>
                 </div>
-                <div class="rounded-2xl bg-white p-4">
-                  <div class="text-3xl font-extrabold text-slate-950">100%</div>
-                  <div class="mt-1 text-sm text-slate-500">Trazabilidad documental</div>
+              </div>
+
+              <div class="soft-panel card-shadow">
+                <div class="flex items-start gap-3">
+                  <span class="icon-dot"></span>
+                  <div>
+                    <h3 class="text-lg font-bold text-slate-950">Más orden</h3>
+                    <p class="mt-2 text-sm leading-7 text-slate-600">Una mejor organización ayuda a aprovechar mejor el espacio y a trabajar con más soltura.</p>
+                  </div>
                 </div>
-                <div class="rounded-2xl bg-white p-4">
-                  <div class="text-3xl font-extrabold text-slate-950">B2B</div>
-                  <div class="mt-1 text-sm text-slate-500">Enfoque profesional</div>
-                </div>
-                <div class="rounded-2xl bg-white p-4">
-                  <div class="text-3xl font-extrabold text-slate-950">360°</div>
-                  <div class="mt-1 text-sm text-slate-500">Visión operativa</div>
+              </div>
+
+              <div class="soft-panel card-shadow">
+                <div class="flex items-start gap-3">
+                  <span class="icon-dot"></span>
+                  <div>
+                    <h3 class="text-lg font-bold text-slate-950">Atención clara</h3>
+                    <p class="mt-2 text-sm leading-7 text-slate-600">Contacto directo con nuestra sede de Ciempozuelos para estudiar cada caso de forma sencilla.</p>
+                  </div>
                 </div>
               </div>
             </div>
+          </div>
 
-            <div class="rounded-3xl border border-white/15 bg-slate-950/55 p-5 text-slate-200 shadow-2xl">
-              <div class="text-sm font-semibold text-white">Qué aporta una gestión mejor planteada</div>
-              <div class="mt-3 space-y-3 text-sm text-slate-300">
-                <div class="flex items-start gap-3"><span class="mt-1 h-2.5 w-2.5 rounded-full bg-emerald-400"></span><span>Clasificación por tipología de material para mejorar el control interno.</span></div>
-                <div class="flex items-start gap-3"><span class="mt-1 h-2.5 w-2.5 rounded-full bg-emerald-400"></span><span>Adaptación al espacio disponible en taller o almacén.</span></div>
-                <div class="flex items-start gap-3"><span class="mt-1 h-2.5 w-2.5 rounded-full bg-emerald-400"></span><span>Seguimiento documental claro y comunicación directa con la sede de Ciempozuelos.</span></div>
+          <div class="grid gap-6">
+            <article class="image-card card-shadow min-h-[380px]">
+              <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=80" alt="Trabajo industrial con metal y chispas" />
+              <div class="image-card-content">
+                <h3 class="text-xl font-bold">Revisión inicial</h3>
+                <p class="mt-2 text-sm text-slate-200">Vemos qué tipo de material generas y cómo se puede organizar mejor.</p>
+              </div>
+            </article>
+
+            <div class="grid gap-4 md:grid-cols-2">
+              <div class="soft-panel card-shadow">
+                <h3 class="text-xl font-bold text-slate-950">Gestión adaptada al material</h3>
+                <p class="mt-3 text-sm leading-7 text-slate-600">Buscamos una forma de trabajo que encaje con tu espacio y con tu ritmo diario.</p>
+              </div>
+
+              <div class="soft-panel card-shadow">
+                <h3 class="text-xl font-bold text-slate-950">Menos acumulación, más espacio útil</h3>
+                <p class="mt-3 text-sm leading-7 text-slate-600">Una buena organización del material ayuda a trabajar mejor y a tener el taller o el almacén más despejado.</p>
               </div>
             </div>
           </div>
@@ -258,261 +309,180 @@
       </div>
     </section>
 
-    <section id="solucion" class="shell px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-      <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-        <div>
-          <span class="section-kicker">Visión estratégica</span>
+    <section class="bg-white">
+      <div class="shell px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+        <div class="max-w-3xl">
+          <span class="section-kicker">Ventajas</span>
           <h2 class="mt-5 text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">
-            La chatarra de aluminio debe gestionarse con criterio, orden y continuidad
+            Una forma de trabajar clara, seria y fácil de entender
           </h2>
           <p class="mt-5 text-lg leading-8 text-slate-600">
-            Muchos talleres y almacenes de aluminio acumulan material sin una operativa clara, sin una clasificación adecuada y sin una interlocución técnica ordenada. Una propuesta seria debe ayudar a mejorar organización, trazabilidad y aprovechamiento del espacio.
+            Queremos ofrecer una solución sencilla y bien organizada. Sin palabras complicadas, sin rodeos y con una atención cercana.
           </p>
-
-          <div class="mt-8 grid gap-4 sm:grid-cols-2">
-            <div class="metric-card card-shadow">
-              <div class="text-sm font-semibold uppercase tracking-[0.15em] text-blue-700">Más control</div>
-              <p class="mt-3 text-sm leading-7 text-slate-600">Seguimiento documental, clasificación y visión más clara del material generado.</p>
-            </div>
-            <div class="metric-card card-shadow">
-              <div class="text-sm font-semibold uppercase tracking-[0.15em] text-emerald-700">Más orden</div>
-              <p class="mt-3 text-sm leading-7 text-slate-600">Una operativa mejor estructurada ayuda a reducir acumulaciones y mejora la organización del espacio.</p>
-            </div>
-          </div>
         </div>
 
-        <div class="grid gap-6 md:grid-cols-2">
-          <article class="image-card card-shadow">
-            <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=80" alt="Taller industrial y trabajo con metal" />
-            <div class="image-card-content">
-              <h3 class="text-xl font-bold">Análisis técnico inicial</h3>
-              <p class="mt-2 text-sm text-slate-200">Revisión del tipo de material, volúmenes aproximados y necesidades reales del taller o almacén.</p>
-            </div>
-          </article>
+        <div class="mt-10 plain-image card-shadow">
+          <img src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=1600&q=80" alt="Zona operativa y logística industrial" />
+        </div>
 
-          <article class="image-card card-shadow">
-            <img src="https://scrapx.es/wp-content/uploads/2023/11/aluminio-perfil-anodizado-pintado-lacado.jpg" alt="Chatarra de perfiles de aluminio anodizado, pintado y lacado" />
-            <div class="image-card-content">
-              <h3 class="text-xl font-bold">Gestión adaptada al material</h3>
-              <p class="mt-2 text-sm text-slate-200">Organización del aluminio generado según tipología, espacio disponible y dinámica real de cada instalación.</p>
-            </div>
-          </article>
+        <div class="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          <div class="soft-panel card-shadow">
+            <div class="text-sm font-semibold uppercase tracking-[0.15em] text-blue-700">01 · Mejor separación</div>
+            <h3 class="mt-2 text-xl font-bold text-slate-950">Cada material mejor organizado</h3>
+            <p class="mt-3 text-sm leading-7 text-slate-600">
+              Separar bien el aluminio ayuda a tener más orden y a llevar mejor el control dentro de la empresa.
+            </p>
+          </div>
+
+          <div class="soft-panel card-shadow">
+            <div class="text-sm font-semibold uppercase tracking-[0.15em] text-emerald-700">02 · Mejor organización</div>
+            <h3 class="mt-2 text-xl font-bold text-slate-950">Adaptado al día a día</h3>
+            <p class="mt-3 text-sm leading-7 text-slate-600">
+              La idea es que la gestión del material encaje con la forma real de trabajar de cada taller o almacén.
+            </p>
+          </div>
+
+          <div class="soft-panel card-shadow">
+            <div class="text-sm font-semibold uppercase tracking-[0.15em] text-amber-600">03 · Más claridad</div>
+            <h3 class="mt-2 text-xl font-bold text-slate-950">Seguimiento sencillo</h3>
+            <p class="mt-3 text-sm leading-7 text-slate-600">
+              Una relación seria necesita documentos claros, buena comunicación y una atención directa cuando haga falta.
+            </p>
+          </div>
+
+          <div class="soft-panel card-shadow">
+            <div class="text-sm font-semibold uppercase tracking-[0.15em] text-slate-700">04 · Más comodidad</div>
+            <h3 class="mt-2 text-xl font-bold text-slate-950">Espacio mejor aprovechado</h3>
+            <p class="mt-3 text-sm leading-7 text-slate-600">
+              Menos material mal colocado y más sitio libre para trabajar con más comodidad y más orden.
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="ventajas" class="bg-slate-950 py-16 md:py-24 text-white">
-      <div class="shell px-4 sm:px-6 lg:px-8">
+    <section class="bg-white">
+      <div class="shell px-4 sm:px-6 lg:px-8 py-16 md:py-20">
         <div class="max-w-3xl">
-          <span class="section-kicker !bg-white/10 !text-blue-200">Ventaja competitiva</span>
-          <h2 class="mt-5 text-3xl font-bold tracking-tight sm:text-4xl">Una propuesta seria, clara y fácil de valorar</h2>
-          <p class="mt-5 text-lg leading-8 text-slate-300">
-            Frente a modelos poco definidos o poco transparentes, planteamos un enfoque basado en clasificación, adaptación operativa, documentación ordenada y una comunicación profesional desde la sede de Ciempozuelos.
+          <span class="section-kicker">Cómo trabajamos</span>
+          <h2 class="mt-5 text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">
+            Un servicio pensado para que todo sea más fácil
+          </h2>
+          <p class="mt-5 text-lg leading-8 text-slate-600">
+            Estudiamos cada caso de forma realista para plantear una manera de trabajar cómoda, clara y útil para el cliente.
           </p>
         </div>
 
-        <div class="mt-12 grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-          <div class="rounded-[2rem] border border-white/10 bg-white/5 p-6 card-shadow">
-            <div class="chart-box">
-              <canvas id="radarChart"></canvas>
-            </div>
-            <p class="mt-4 text-sm text-slate-400">Comparativa entre una gestión estándar y un modelo más ordenado y profesional.</p>
+        <div class="mt-12 grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+          <div>
+            <article class="image-card card-shadow min-h-[420px]">
+              <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&w=1200&q=80" alt="Revisión técnica y planificación del material" />
+              <div class="image-card-content">
+                <h3 class="text-2xl font-bold">Orden y control del material</h3>
+                <p class="mt-2 text-sm text-slate-200">Una forma de trabajo más clara ayuda a tener el aluminio mejor organizado y el espacio mejor aprovechado.</p>
+              </div>
+            </article>
           </div>
 
           <div class="grid gap-5">
-            <div class="rounded-3xl border border-white/10 bg-white/5 p-6">
-              <div class="text-sm font-semibold uppercase tracking-[0.15em] text-blue-300">01 · Clasificación</div>
-              <h3 class="mt-2 text-xl font-bold">Separación más clara del material</h3>
-              <p class="mt-3 text-sm leading-7 text-slate-300">No todo el aluminio generado en taller o almacén tiene la misma naturaleza. Una clasificación adecuada ayuda a ordenar mejor el proceso.</p>
+            <div class="soft-panel card-shadow">
+              <div class="flex items-start gap-4">
+                <div class="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-blue-700 text-sm font-bold text-white">1</div>
+                <div>
+                  <h3 class="text-lg font-bold text-slate-950">Primer vistazo</h3>
+                  <p class="mt-2 text-sm leading-7 text-slate-600">
+                    Vemos qué tipo de chatarra generas, cuánto espacio tienes y cómo trabajas en el día a día.
+                  </p>
+                </div>
+              </div>
             </div>
-            <div class="rounded-3xl border border-white/10 bg-white/5 p-6">
-              <div class="text-sm font-semibold uppercase tracking-[0.15em] text-emerald-300">02 · Operativa</div>
-              <h3 class="mt-2 text-xl font-bold">Adaptación al espacio y a la actividad diaria</h3>
-              <p class="mt-3 text-sm leading-7 text-slate-300">La gestión del material debe integrarse bien en el ritmo real de trabajo, sin añadir desorden ni interferencias innecesarias.</p>
+
+            <div class="soft-panel card-shadow">
+              <div class="flex items-start gap-4">
+                <div class="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-slate-950 text-sm font-bold text-white">2</div>
+                <div>
+                  <h3 class="text-lg font-bold text-slate-950">Propuesta adaptada</h3>
+                  <p class="mt-2 text-sm leading-7 text-slate-600">
+                    Planteamos una forma de organizar el material y de llevar el control de manera sencilla y útil.
+                  </p>
+                </div>
+              </div>
             </div>
-            <div class="rounded-3xl border border-white/10 bg-white/5 p-6">
-              <div class="text-sm font-semibold uppercase tracking-[0.15em] text-amber-300">03 · Gestión documental</div>
-              <h3 class="mt-2 text-xl font-bold">Seguimiento claro y sin zonas grises</h3>
-              <p class="mt-3 text-sm leading-7 text-slate-300">Una relación profesional se apoya en documentación ordenada, trazabilidad y un contacto claro para cada consulta.</p>
+
+            <div class="soft-panel card-shadow">
+              <div class="flex items-start gap-4">
+                <div class="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-emerald-600 text-sm font-bold text-white">3</div>
+                <div>
+                  <h3 class="text-lg font-bold text-slate-950">Seguimiento</h3>
+                  <p class="mt-2 text-sm leading-7 text-slate-600">
+                    Mantenemos una comunicación clara para que el servicio sea estable y fácil de llevar.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="soft-panel card-shadow">
+              <div class="text-sm font-semibold uppercase tracking-[0.15em] text-slate-500">Punto importante</div>
+              <p class="mt-3 text-sm leading-7 text-slate-600">
+                Una buena gestión de la chatarra ayuda a trabajar mejor, aprovechar mejor el espacio y tener una visión más clara de lo que se genera.
+              </p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="proceso" class="shell px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-      <div class="max-w-3xl">
-        <span class="section-kicker">Implantación</span>
-        <h2 class="mt-5 text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">Un planteamiento operativo sin fricción innecesaria</h2>
-        <p class="mt-5 text-lg leading-8 text-slate-600">
-          El objetivo es estudiar cada caso con realismo y plantear una operativa coherente con el funcionamiento diario del taller o del almacén, sin promesas que no estén previamente definidas.
-        </p>
-      </div>
-
-      <div class="mt-12 grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-        <div class="image-card card-shadow min-h-[520px]">
-          <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1200&q=80" alt="Clasificación y gestión profesional de material reciclable" />
-          <div class="image-card-content">
-            <h3 class="text-2xl font-bold">Gestión enfocada al material y al espacio</h3>
-            <p class="mt-2 text-sm text-slate-200">Clasificación, orden interno y coordinación operativa adaptada a cada instalación.</p>
-          </div>
-        </div>
-
-        <div class="relative rounded-[2rem] border border-slate-200 bg-white p-6 md:p-8 card-shadow">
-          <div class="step-line hidden md:block"></div>
-
-          <div class="relative z-10 space-y-8">
-            <article class="relative rounded-3xl border border-slate-200 bg-slate-50 p-6 md:ml-8">
-              <div class="flex items-start gap-4">
-                <div class="grid h-10 w-10 shrink-0 place-items-center rounded-2xl bg-blue-600 text-sm font-bold text-white">1</div>
-                <div>
-                  <h3 class="text-lg font-bold text-slate-950">Revisión inicial</h3>
-                  <p class="mt-2 text-sm leading-7 text-slate-600">Análisis del tipo de chatarra generada, del espacio disponible y del funcionamiento general del taller o almacén.</p>
-                </div>
-              </div>
-            </article>
-
-            <article class="relative rounded-3xl border border-slate-200 bg-slate-50 p-6 md:ml-8">
-              <div class="flex items-start gap-4">
-                <div class="grid h-10 w-10 shrink-0 place-items-center rounded-2xl bg-slate-950 text-sm font-bold text-white">2</div>
-                <div>
-                  <h3 class="text-lg font-bold text-slate-950">Propuesta operativa personalizada</h3>
-                  <p class="mt-2 text-sm leading-7 text-slate-600">Definición del enfoque de clasificación, organización del material y encaje documental según las necesidades reales de cada caso.</p>
-                </div>
-              </div>
-            </article>
-
-            <article class="relative rounded-3xl border border-slate-200 bg-slate-50 p-6 md:ml-8">
-              <div class="flex items-start gap-4">
-                <div class="grid h-10 w-10 shrink-0 place-items-center rounded-2xl bg-emerald-600 text-sm font-bold text-white">3</div>
-                <div>
-                  <h3 class="text-lg font-bold text-slate-950">Seguimiento y comunicación</h3>
-                  <p class="mt-2 text-sm leading-7 text-slate-600">Coordinación posterior, revisión de incidencias y comunicación directa con Alueuropa para mantener una operativa clara y estable.</p>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="resultados" class="shell px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-      <div class="grid gap-8 lg:grid-cols-2">
-        <div class="rounded-[2rem] border border-slate-200 bg-white p-6 md:p-8 card-shadow">
-          <span class="section-kicker">Resultados</span>
-          <h2 class="mt-5 text-3xl font-bold tracking-tight text-slate-950">Impacto estimado en organización y control</h2>
-          <p class="mt-4 text-slate-600 leading-8">
-            Una gestión más estructurada puede mejorar el orden, la clasificación y el seguimiento documental del material.
-          </p>
-          <div class="mt-8 chart-box">
-            <canvas id="barChart"></canvas>
-          </div>
-        </div>
-
-        <div class="rounded-[2rem] border border-slate-200 bg-white p-6 md:p-8 card-shadow">
-          <span class="section-kicker">Sostenibilidad y material</span>
-          <h2 class="mt-5 text-3xl font-bold tracking-tight text-slate-950">El reciclaje como ventaja estructural</h2>
-          <p class="mt-4 text-slate-600 leading-8">
-            El aluminio reciclado mantiene una ventaja energética muy relevante frente a la producción primaria. Esto refuerza la importancia de una gestión rigurosa del material generado en taller o almacén.
-          </p>
-
-          <div class="mt-8 grid gap-6 md:grid-cols-2 md:items-center">
-            <div class="flex flex-col items-center">
-              <div class="chart-box h-[260px] md:h-[300px] w-full max-w-[320px] mx-auto">
-                <canvas id="doughnutChart"></canvas>
-              </div>
-
-              <div class="mt-6 w-full max-w-[320px] space-y-3 text-sm text-slate-600">
-                <div class="flex items-start gap-3">
-                  <span class="mt-1 h-4 w-4 shrink-0 rounded-full bg-emerald-600"></span>
-                  <span>Ahorro energético por reciclaje</span>
-                </div>
-                <div class="flex items-start gap-3">
-                  <span class="mt-1 h-4 w-4 shrink-0 rounded-full bg-slate-200 border border-slate-300"></span>
-                  <span>Consumo residual del proceso</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="rounded-3xl bg-slate-50 p-6">
-              <div class="text-sm font-semibold uppercase tracking-[0.15em] text-slate-500">Punto clave</div>
-              <p class="mt-3 text-sm leading-7 text-slate-600">Un modelo serio de gestión de chatarra ayuda a mejorar orden interno, previsibilidad y trazabilidad, y facilita una relación profesional a largo plazo.</p>
-              <div class="mt-5 border-t border-slate-200 pt-5">
-                <div class="text-2xl font-extrabold text-slate-950">95%</div>
-                <div class="mt-1 text-sm text-slate-500">Ahorro energético aproximado frente a producción primaria</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contacto" class="pb-20">
+    <section class="bg-white pb-20">
       <div class="shell px-4 sm:px-6 lg:px-8">
-        <div class="overflow-hidden rounded-[2rem] bg-gradient-to-r from-blue-800 via-blue-700 to-slate-900 card-shadow">
+        <div class="overflow-hidden rounded-[2rem] border border-slate-200 bg-white card-shadow">
           <div class="grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
-            <div class="p-8 md:p-12 text-white">
-              <span class="inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-blue-100">
-                Contacto
-              </span>
-              <h2 class="mt-6 text-3xl font-bold tracking-tight sm:text-4xl">Solicita una valoración inicial</h2>
-              <p class="mt-5 max-w-2xl text-lg leading-8 text-blue-100">
-                Cuéntanos tu caso y estudiaremos una propuesta ajustada al tipo de material, al espacio disponible y a la realidad operativa de tu instalación.
+            <div class="p-8 md:p-12">
+              <span class="section-kicker">Contacto</span>
+              <h2 class="mt-6 text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">
+                Pide información sin complicaciones
+              </h2>
+              <p class="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
+                Cuéntanos tu caso y estudiaremos una propuesta adaptada al tipo de material que generas y al espacio del que dispones.
               </p>
 
               <div class="mt-8 grid gap-4 sm:grid-cols-2">
-                <div class="rounded-3xl bg-white/10 p-5">
-                  <div class="text-sm font-semibold text-white">Dirigido a</div>
-                  <div class="mt-2 text-sm text-blue-100">Talleres, carpinterías metálicas y almacenes de aluminio para construcción.</div>
+                <div class="rounded-3xl border border-slate-200 bg-slate-50 p-5">
+                  <div class="text-sm font-semibold text-slate-950">Pensado para</div>
+                  <div class="mt-2 text-sm text-slate-600">Talleres, carpinterías metálicas y almacenes de aluminio para construcción.</div>
                 </div>
-                <div class="rounded-3xl bg-white/10 p-5">
-                  <div class="text-sm font-semibold text-white">Sede de referencia</div>
-                  <div class="mt-2 text-sm text-blue-100">Ciempozuelos, Madrid.</div>
+                <div class="rounded-3xl border border-slate-200 bg-slate-50 p-5">
+                  <div class="text-sm font-semibold text-slate-950">Sede de referencia</div>
+                  <div class="mt-2 text-sm text-slate-600">Ciempozuelos, Madrid.</div>
                 </div>
               </div>
 
-              <div class="mt-6 rounded-3xl bg-white/10 p-5">
-                <div class="text-sm font-semibold text-white">Correos de contacto</div>
-                <div class="mt-3 space-y-2 text-sm text-blue-100">
+              <div class="mt-6 rounded-3xl border border-slate-200 bg-slate-50 p-5">
+                <div class="text-sm font-semibold text-slate-950">Correos de contacto</div>
+                <div class="mt-3 space-y-2 text-sm">
                   <div><a class="contact-link" href="mailto:alueuropa@alueuropa.com">alueuropa@alueuropa.com</a></div>
                   <div><a class="contact-link" href="mailto:elombardia@alueuropa.com">elombardia@alueuropa.com</a></div>
                 </div>
               </div>
             </div>
 
-            <div class="bg-white p-8 md:p-10">
-              <div class="text-sm font-semibold uppercase tracking-[0.16em] text-slate-500">Formulario de contacto</div>
-              <form id="contactForm" class="mt-6 space-y-4">
-                <div>
-                  <label class="mb-2 block text-sm font-medium text-slate-700" for="empresa">Empresa</label>
-                  <input id="empresa" name="empresa" type="text" placeholder="Nombre de la empresa" required class="w-full rounded-2xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-blue-600 focus:ring-4 focus:ring-blue-100" />
-                </div>
+            <div class="grid gap-4 border-t border-slate-200 bg-white p-8 md:border-l md:border-t-0 md:p-10">
+              <div class="plain-image card-shadow">
+                <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80" alt="Equipo técnico en entorno industrial" />
+              </div>
 
-                <div class="grid gap-4 sm:grid-cols-2">
-                  <div>
-                    <label class="mb-2 block text-sm font-medium text-slate-700" for="nombre">Nombre</label>
-                    <input id="nombre" name="nombre" type="text" placeholder="Persona de contacto" required class="w-full rounded-2xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-blue-600 focus:ring-4 focus:ring-blue-100" />
-                  </div>
-                  <div>
-                    <label class="mb-2 block text-sm font-medium text-slate-700" for="telefono">Teléfono</label>
-                    <input id="telefono" name="telefono" type="tel" placeholder="Número de teléfono" class="w-full rounded-2xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-blue-600 focus:ring-4 focus:ring-blue-100" />
-                  </div>
+              <div class="soft-panel">
+                <p class="text-sm leading-7 text-slate-600">
+                  Si quieres estudiar tu caso, escríbenos directamente y te responderemos desde Alueuropa.
+                </p>
+                <div class="mt-4 flex flex-col gap-3 sm:flex-row">
+                  <a href="mailto:alueuropa@alueuropa.com" class="inline-flex items-center justify-center rounded-full bg-blue-700 px-6 py-3 text-sm font-semibold text-white transition hover:bg-blue-800">
+                    Escribir a Alueuropa
+                  </a>
+                  <a href="mailto:elombardia@alueuropa.com" class="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-50">
+                    Contacto comercial
+                  </a>
                 </div>
-
-                <div>
-                  <label class="mb-2 block text-sm font-medium text-slate-700" for="email">Correo electrónico</label>
-                  <input id="email" name="email" type="email" placeholder="correo@empresa.com" required class="w-full rounded-2xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-blue-600 focus:ring-4 focus:ring-blue-100" />
-                </div>
-
-                <div>
-                  <label class="mb-2 block text-sm font-medium text-slate-700" for="mensaje">Necesidad o consulta</label>
-                  <textarea id="mensaje" name="mensaje" rows="4" placeholder="Cuéntanos el tipo de chatarra, volumen aproximado o situación actual" required class="w-full rounded-2xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-blue-600 focus:ring-4 focus:ring-blue-100"></textarea>
-                </div>
-
-                <button type="submit" class="w-full rounded-full bg-slate-950 px-6 py-4 text-sm font-semibold text-white transition hover:bg-slate-800">
-                  Enviar solicitud
-                </button>
-              </form>
+              </div>
             </div>
           </div>
         </div>
@@ -520,236 +490,5 @@
     </section>
   </main>
 
-  <footer class="border-t border-slate-200 bg-white">
-    <div class="shell px-4 sm:px-6 lg:px-8 py-8">
-      <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-        <div class="flex items-center gap-3">
-          <div class="brand-mark"><span>AL</span></div>
-          <div>
-            <div class="text-sm font-semibold text-slate-800">Alueuropa</div>
-            <div class="text-xs text-slate-500">Gestión de chatarra de aluminio para talleres y almacenes</div>
-          </div>
-        </div>
-        <div class="text-sm text-slate-500">Sede de referencia: Ciempozuelos, Madrid · © 2026 Alueuropa</div>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    const wrapLabel = (text, max = 16) => {
-      if (text.length <= max) return text;
-      const words = text.split(' ');
-      const lines = [];
-      let line = '';
-
-      words.forEach((word) => {
-        if ((line + word).length > max) {
-          if (line) lines.push(line.trim());
-          line = word + ' ';
-        } else {
-          line += word + ' ';
-        }
-      });
-
-      if (line) lines.push(line.trim());
-      return lines;
-    };
-
-    const tooltipTitleCallback = {
-      callbacks: {
-        title: function(items) {
-          const item = items[0];
-          const label = item.chart.data.labels[item.dataIndex];
-          return Array.isArray(label) ? label.join(' ') : label;
-        }
-      }
-    };
-
-    Chart.defaults.font.family = 'Inter, system-ui, sans-serif';
-    Chart.defaults.color = '#475569';
-
-    const doughnutCtx = document.getElementById('doughnutChart');
-    new Chart(doughnutCtx, {
-      type: 'doughnut',
-      data: {
-        labels: [
-          'Ahorro energético por reciclaje',
-          'Consumo residual del proceso'
-        ],
-        datasets: [{
-          data: [95, 5],
-          backgroundColor: ['#059669', '#e2e8f0'],
-          borderWidth: 0,
-          hoverOffset: 6
-        }]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        cutout: '73%',
-        plugins: {
-          legend: {
-            display: false
-          },
-          tooltip: tooltipTitleCallback
-        }
-      }
-    });
-
-    const radarCtx = document.getElementById('radarChart');
-    new Chart(radarCtx, {
-      type: 'radar',
-      data: {
-        labels: [
-          wrapLabel('Clasificación del material'),
-          wrapLabel('Adaptación al espacio'),
-          wrapLabel('Trazabilidad'),
-          wrapLabel('Gestión documental'),
-          wrapLabel('Coordinación operativa')
-        ],
-        datasets: [
-          {
-            label: 'Gestión estándar',
-            data: [48, 52, 40, 44, 46],
-            backgroundColor: 'rgba(148, 163, 184, 0.14)',
-            borderColor: '#94a3b8',
-            pointBackgroundColor: '#cbd5e1',
-            pointBorderColor: '#94a3b8',
-            borderWidth: 2
-          },
-          {
-            label: 'Modelo propuesto',
-            data: [90, 88, 96, 92, 86],
-            backgroundColor: 'rgba(59, 130, 246, 0.24)',
-            borderColor: '#60a5fa',
-            pointBackgroundColor: '#93c5fd',
-            pointBorderColor: '#60a5fa',
-            borderWidth: 2
-          }
-        ]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-          r: {
-            min: 0,
-            max: 100,
-            ticks: { display: false, stepSize: 20 },
-            angleLines: { color: 'rgba(255,255,255,0.08)' },
-            grid: { color: 'rgba(255,255,255,0.08)' },
-            pointLabels: {
-              color: '#cbd5e1',
-              font: { size: 11, weight: 600 }
-            }
-          }
-        },
-        plugins: {
-          legend: {
-            position: 'top',
-            labels: {
-              color: '#e2e8f0',
-              boxWidth: 12,
-              usePointStyle: true,
-              pointStyle: 'circle',
-              padding: 18
-            }
-          },
-          tooltip: tooltipTitleCallback
-        }
-      }
-    });
-
-    const barCtx = document.getElementById('barChart');
-    new Chart(barCtx, {
-      type: 'bar',
-      data: {
-        labels: [
-          wrapLabel('Orden interno'),
-          wrapLabel('Clasificación'),
-          wrapLabel('Trazabilidad'),
-          wrapLabel('Seguimiento documental')
-        ],
-        datasets: [
-          {
-            label: 'Gestión estándar',
-            data: [46, 42, 40, 44],
-            backgroundColor: '#cbd5e1',
-            borderRadius: 10,
-            borderSkipped: false
-          },
-          {
-            label: 'Modelo propuesto',
-            data: [78, 84, 92, 88],
-            backgroundColor: '#2563eb',
-            borderRadius: 10,
-            borderSkipped: false
-          }
-        ]
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-          x: {
-            grid: { display: false },
-            ticks: { color: '#64748b' }
-          },
-          y: {
-            beginAtZero: true,
-            max: 100,
-            grid: { color: '#e2e8f0' },
-            ticks: { color: '#64748b' },
-            title: {
-              display: true,
-              text: 'Índice comparativo',
-              color: '#475569',
-              font: { weight: 700 }
-            }
-          }
-        },
-        plugins: {
-          legend: {
-            position: 'top',
-            labels: {
-              boxWidth: 12,
-              usePointStyle: true,
-              pointStyle: 'circle',
-              padding: 18
-            }
-          },
-          tooltip: tooltipTitleCallback
-        }
-      }
-    });
-
-    const form = document.getElementById('contactForm');
-
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      const empresa = document.getElementById('empresa').value.trim();
-      const nombre = document.getElementById('nombre').value.trim();
-      const telefono = document.getElementById('telefono').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const mensaje = document.getElementById('mensaje').value.trim();
-
-      const subject = `Solicitud de información - ${empresa}`;
-      const body = `
-Empresa: ${empresa}
-Nombre: ${nombre}
-Teléfono: ${telefono}
-Correo: ${email}
-
-Consulta:
-${mensaje}
-      `.trim();
-
-      const to = 'alueuropa@alueuropa.com';
-      const cc = 'elombardia@alueuropa.com';
-
-      window.location.href = `mailto:${to}?cc=${encodeURIComponent(cc)}&subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    });
-  </script>
 </body>
 </html>
