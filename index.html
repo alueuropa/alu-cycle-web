@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alueuropa Reciclado | Gestión de chatarra de aluminio</title>
+  <meta
+    name="description"
+    content="División de Alueuropa orientada a la gestión y valorización de chatarra de aluminio para talleres, carpinterías y almacenes de aluminio."
+  />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy: #0f172a;
+      --slate: #334155;
+      --muted: #64748b;
+      --line: #e2e8f0;
+      --soft: #f8fafc;
+      --blue: #1d4ed8;
+      --blue-dark: #1e3a8a;
+      --emerald: #059669;
+      --white: #ffffff;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--soft);
+      color: var(--navy);
+    }
+
+    .shell {
+      max-width: 1240px;
+      margin: 0 auto;
+    }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.78);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .card-shadow {
+      box-shadow: 0 18px 50px rgba(15, 23, 42, 0.08);
+    }
+
+    .hero-overlay {
+      background: linear-gradient(90deg, rgba(2, 6, 23, 0.88) 0%, rgba(15, 23, 42, 0.72) 48%, rgba(15, 23, 42, 0.30) 100%);
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #1d4ed8 0%, #0f766e 100%);
+      display: grid;
+      place-items: center;
+      box-shadow: 0 12px 28px rgba(29, 78, 216, 0.28);
+      flex-shrink: 0;
+    }
+
+    .brand-mark span {
+      color: white;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      font-size: 0.95rem;
+    }
+
+    .section-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 700;
+      color: var(--blue);
+      background: rgba(29, 78, 216, 0.08);
+      padding: 0.5rem 0.9rem;
+      border-radius: 999px;
+    }
+
+    .image-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1.75rem;
+      min-height: 280px;
+    }
+
+    .image-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .image-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(15, 23, 42, 0.72), rgba(15, 23, 42, 0.08));
+    }
+
+    .image-card-content {
+      position: absolute;
+      left: 1.5rem;
+      right: 1.5rem;
+      bottom: 1.5rem;
+      z-index: 1;
+      color: white;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 2rem;
+    }
+
+    .step-line {
+      position: absolute;
+      top: 1.5rem;
+      bottom: 1.5rem;
+      left: 1rem;
+      width: 2px;
+      background: linear-gradient(to bottom, #bfdbfe, #cbd5e1);
+    }
+
+    @media (max-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-blue-100 selection:text-blue-900">
+
+  <header class="sticky top-0 z-50 border-b border-slate-200/70 bg-white/85 backdrop-blur-xl">
+    <div class="shell px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between py-4">
+        <a href="#top" class="flex items-center gap-3">
+          <div class="brand-mark"><span>AL</span></div>
+          <div>
+            <div class="text-sm font-semibold tracking-[0.18em] text-slate-500 uppercase">Alueuropa Reciclado</div>
+            <div class="text-xs text-slate-400">Gestión de chatarra de aluminio para talleres y almacenes</div>
+          </div>
+        </a>
+
+        <nav class="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-600">
+          <a class="transition hover:text-slate-950" href="#servicio">Servicio</a>
+          <a class="transition hover:text-slate-950" href="#destinatarios">A quién va dirigido</a>
+          <a class="transition hover:text-slate-950" href="#proceso">Cómo trabajamos</a>
+          <a class="transition hover:text-slate-950" href="#contacto">Contacto</a>
+        </nav>
+
+        <a href="#contacto" class="hidden sm:inline-flex items-center justify-center rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800">
+          Solicitar información
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="relative isolate overflow-hidden">
+      <div class="absolute inset-0">
+        <img
+          src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1600&q=80"
+          alt="Entorno profesional y comercial del sector aluminio"
+          class="h-full w-full object-cover"
+        />
+        <div class="hero-overlay absolute inset-0"></div>
+      </div>
+
+      <div class="shell relative px-4 sm:px-6 lg:px-8 py-16 md:py-24 lg:py-28">
+        <div class="hero-grid items-end">
+          <div class="max-w-3xl text-white">
+            <span class="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-blue-100">
+              Solución vinculada a Alueuropa
+            </span>
+
+            <h1 class="mt-6 text-4xl font-extrabold leading-tight sm:text-5xl lg:text-6xl">
+              Una solución seria para la gestión de chatarra de aluminio
+            </h1>
+
+            <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-200">
+              Orientada a talleres, carpinterías de aluminio, almacenes y entornos profesionales que generan recortes, sobrantes o material recuperable y buscan una vía más ordenada para su gestión.
+            </p>
+
+            <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+              <a href="#servicio" class="inline-flex items-center justify-center rounded-full bg-emerald-500 px-7 py-4 text-sm font-semibold text-white shadow-lg shadow-emerald-900/20 transition hover:bg-emerald-400">
+                Ver servicio
+              </a>
+              <a href="#contacto" class="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-7 py-4 text-sm font-semibold text-white transition hover:bg-white/20">
+                Contactar
+              </a>
+            </div>
+          </div>
+
+          <div class="grid gap-4">
+            <div class="glass card-shadow rounded-3xl border border-white/30 p-6">
+              <div class="text-sm font-semibold uppercase tracking-[0.16em] text-slate-500">Enfoque</div>
+              <div class="mt-5 grid grid-cols-1 gap-4">
+                <div class="rounded-2xl bg-white p-4">
+                  <div class="text-lg font-bold text-slate-950">Talleres y carpinterías</div>
+                  <div class="mt-1 text-sm text-slate-500">Para negocios que trabajan a diario con perfiles, recortes y sobrantes de aluminio.</div>
+                </div>
+                <div class="rounded-2xl bg-white p-4">
+                  <div class="text-lg font-bold text-slate-950">Almacenes de aluminio</div>
+                  <div class="mt-1 text-sm text-slate-500">Con una orientación sutil hacia almacenes vinculados a construcción y distribución profesional.</div>
+                </div>
+                <div class="rounded-2xl bg-white p-4">
+                  <div class="text-lg font-bold text-slate-950">Gestión ordenada</div>
+                  <div class="mt-1 text-sm text-slate-500">Con una presentación clara, profesional y alineada con la imagen de Alueuropa.</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="rounded-3xl border border-white/15 bg-slate-950/55 p-5 text-slate-200 shadow-2xl">
+              <div class="text-sm font-semibold text-white">Qué transmite esta propuesta</div>
+              <div class="mt-3 space-y-3 text-sm text-slate-300">
+                <div class="flex items-start gap-3">
+                  <span class="mt-1 h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
+                  <span>Seriedad, cercanía y capacidad de interlocución.</span>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="mt-1 h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
+                  <span>Un servicio enfocado a perfiles profesionales reales del sector.</span>
+                </div>
+                <div class="flex items-start gap-3">
+                  <span class="mt-1 h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
+                  <span>Una imagen más corporativa y coherente con la marca matriz.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicio" class="shell px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <div class="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+        <div>
+          <span class="section-kicker">Servicio</span>
+          <h2 class="mt-5 text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">
+            Gestión de chatarra de aluminio con un enfoque profesional y ordenado
+          </h2>
+          <p class="mt-5 text-lg leading-8 text-slate-600">
+            Esta propuesta está planteada como una extensión natural del entorno Alueuropa: una presencia seria, clara y orientada a empresas que manejan aluminio en su actividad diaria y necesitan una interlocución más cercana y bien presentada.
+          </p>
+          <p class="mt-4 text-lg leading-8 text-slate-600">
+            El objetivo es facilitar una vía de contacto para talleres, carpinterías y almacenes de aluminio que quieran consultar su situación, explicar su casuística y hablar con un equipo que entiende el material y el sector.
+          </p>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-2">
+          <article class="image-card card-shadow min-h-[320px]">
+            <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1200&q=80" alt="Relación comercial y atención profesional" />
+            <div class="image-card-content">
+              <h3 class="text-xl font-bold">Interlocución clara</h3>
+              <p class="mt-2 text-sm text-slate-200">
+                Una propuesta presentada con tono profesional, directo y sin promesas que todavía no están definidas.
+              </p>
+            </div>
+          </article>
+
+          <article class="image-card card-shadow min-h-[320px]">
+            <img src="https://images.unsplash.com/photo-1581092918484-8313b4d4af7f?auto=format&fit=crop&w=1200&q=80" alt="Trabajo técnico con aluminio" />
+            <div class="image-card-content">
+              <h3 class="text-xl font-bold">Conocimiento del sector</h3>
+              <p class="mt-2 text-sm text-slate-200">
+                Un lenguaje orientado a quienes trabajan con aluminio en taller, almacenamiento o distribución.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="destinatarios" class="bg-slate-950 py-16 md:py-24 text-white">
+      <div class="shell px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl">
+          <span class="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-blue-200">
+            Público objetivo
+          </span>
+
+          <h2 class="mt-5 text-3xl font-bold tracking-tight sm:text-4xl">
+            Una web pensada para perfiles profesionales concretos
+          </h2>
+
+          <p class="mt-5 text-lg leading-8 text-slate-300">
+            El mensaje ya no se dirige a grandes plantas industriales ni a procesos complejos que no se corresponden con la realidad que quieres comunicar. La orientación es más precisa, más creíble y más útil comercialmente.
+          </p>
+        </div>
+
+        <div class="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          <div class="rounded-3xl border border-white/10 bg-white/5 p-6">
+            <div class="text-sm font-semibold uppercase tracking-[0.15em] text-blue-300">01</div>
+            <h3 class="mt-3 text-xl font-bold">Talleres</h3>
+            <p class="mt-3 text-sm leading-7 text-slate-300">
+              Negocios que generan restos, recortes y sobrantes de aluminio dentro de su trabajo diario.
+            </p>
+          </div>
+
+          <div class="rounded-3xl border border-white/10 bg-white/5 p-6">
+            <div class="text-sm font-semibold uppercase tracking-[0.15em] text-emerald-300">02</div>
+            <h3 class="mt-3 text-xl font-bold">Carpinterías de aluminio</h3>
+            <p class="mt-3 text-sm leading-7 text-slate-300">
+              Empresas vinculadas a cerramientos, ventanas, puertas y soluciones constructivas en aluminio.
+            </p>
+          </div>
+
+          <div class="rounded-3xl border border-white/10 bg-white/5 p-6">
+            <div class="text-sm font-semibold uppercase tracking-[0.15em] text-amber-300">03</div>
+            <h3 class="mt-3 text-xl font-bold">Almacenes de aluminio</h3>
+            <p class="mt-3 text-sm leading-7 text-slate-300">
+              Con un enfoque sutil hacia almacenes y puntos de distribución que manejan perfilería y material para construcción.
+            </p>
+          </div>
+
+          <div class="rounded-3xl border border-white/10 bg-white/5 p-6">
+            <div class="text-sm font-semibold uppercase tracking-[0.15em] text-cyan-300">04</div>
+            <h3 class="mt-3 text-xl font-bold">Entorno profesional</h3>
+            <p class="mt-3 text-sm leading-7 text-slate-300">
+              La propuesta se presenta desde la seriedad de marca, no desde promesas comerciales aún no definidas.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="proceso" class="shell px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+      <div class="max-w-3xl">
+        <span class="section-kicker">Cómo trabajamos</span>
+        <h2 class="mt-5 text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">
+          Un planteamiento simple, claro y sin mensajes que no tocan
+        </h2>
+        <p class="mt-5 text-lg leading-8 text-slate-600">
+          La web se apoya en una estructura sobria: presentación del servicio, identificación del público objetivo y un canal de contacto directo con la sede adecuada. Sin referencias a condiciones que no se han definido y sin datos que no correspondan.
+        </p>
+      </div>
+
+      <div class="mt-12 grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+        <div class="image-card card-shadow min-h-[520px]">
+          <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1200&q=80" alt="Atención y relación comercial profesional" />
+          <div class="image-card-content">
+            <h3 class="text-2xl font-bold">Una presencia comercial más coherente</h3>
+            <p class="mt-2 text-sm text-slate-200">
+              Con lenguaje adaptado al interlocutor correcto y sin elementos que puedan generar ruido o dudas.
+            </p>
+          </div>
+        </div>
+
+        <div class="relative rounded-[2rem] border border-slate-200 bg-white p-6 md:p-8 card-shadow">
+          <div class="step-line hidden md:block"></div>
+
+          <div class="relative z-10 space-y-8">
+            <article class="relative rounded-3xl border border-slate-200 bg-slate-50 p-6 md:ml-8">
+              <div class="flex items-start gap-4">
+                <div class="grid h-10 w-10 shrink-0 place-items-center rounded-2xl bg-blue-600 text-sm font-bold text-white">1</div>
+                <div>
+                  <h3 class="text-lg font-bold text-slate-950">Presentación correcta</h3>
+                  <p class="mt-2 text-sm leading-7 text-slate-600">
+                    Se explica el servicio sin mencionar precios, pagos, plazos ni compromisos que no están definidos.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="relative rounded-3xl border border-slate-200 bg-slate-50 p-6 md:ml-8">
+              <div class="flex items-start gap-4">
+                <div class="grid h-10 w-10 shrink-0 place-items-center rounded-2xl bg-slate-950 text-sm font-bold text-white">2</div>
+                <div>
+                  <h3 class="text-lg font-bold text-slate-950">Público bien enfocado</h3>
+                  <p class="mt-2 text-sm leading-7 text-slate-600">
+                    El contenido está orientado a talleres, carpinterías y almacenes de aluminio, especialmente en un contexto de construcción y distribución profesional.
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="relative rounded-3xl border border-slate-200 bg-slate-50 p-6 md:ml-8">
+              <div class="flex items-start gap-4">
+                <div class="grid h-10 w-10 shrink-0 place-items-center rounded-2xl bg-emerald-600 text-sm font-bold text-white">3</div>
+                <div>
+                  <h3 class="text-lg font-bold text-slate-950">Contacto limpio</h3>
+                  <p class="mt-2 text-sm leading-7 text-slate-600">
+                    Solo se muestran los datos que sí corresponden: la sede de Ciempozuelos y el correo adecuado de Alueuropa.
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto" class="pb-20">
+      <div class="shell px-4 sm:px-6 lg:px-8">
+        <div class="overflow-hidden rounded-[2rem] bg-gradient-to-r from-blue-800 via-blue-700 to-slate-900 card-shadow">
+          <div class="grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
+            <div class="p-8 md:p-12 text-white">
+              <span class="inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-blue-100">
+                Contacto
+              </span>
+
+              <h2 class="mt-6 text-3xl font-bold tracking-tight sm:text-4xl">
+                Contacta con Alueuropa
+              </h2>
+
+              <p class="mt-5 max-w-2xl text-lg leading-8 text-blue-100">
+                Esta propuesta se apoya en la estructura de Alueuropa y remite al punto de contacto que sí corresponde para esta presentación.
+              </p>
+
+              <div class="mt-8 space-y-4">
+                <div class="rounded-3xl bg-white/10 p-5">
+                  <div class="text-sm font-semibold text-white">Sede Central · Ciempozuelos (Madrid)</div>
+                  <div class="mt-2 text-sm leading-7 text-blue-100">
+                    Carretera Nacional IV, Km 32<br>
+                    Apartado de correos 69<br>
+                    28350 Ciempozuelos, Madrid
+                  </div>
+                </div>
+
+                <div class="grid gap-4 sm:grid-cols-2">
+                  <div class="rounded-3xl bg-white/10 p-5">
+                    <div class="text-sm font-semibold text-white">Teléfono</div>
+                    <div class="mt-2 text-sm text-blue-100">+34 91 895 58 00</div>
+                  </div>
+
+                  <div class="rounded-3xl bg-white/10 p-5">
+                    <div class="text-sm font-semibold text-white">Correo electrónico</div>
+                    <div class="mt-2 text-sm text-blue-100">alueuropa@alueuropa.com</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-white p-8 md:p-10">
+              <div class="text-sm font-semibold uppercase tracking-[0.16em] text-slate-500">Solicitud de contacto</div>
+
+              <form class="mt-6 space-y-4">
+                <div>
+                  <label class="mb-2 block text-sm font-medium text-slate-700" for="empresa">Empresa</label>
+                  <input id="empresa" type="text" placeholder="Nombre de la empresa" class="w-full rounded-2xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-blue-600 focus:ring-4 focus:ring-blue-100" />
+                </div>
+
+                <div class="grid gap-4 sm:grid-cols-2">
+                  <div>
+                    <label class="mb-2 block text-sm font-medium text-slate-700" for="nombre">Nombre</label>
+                    <input id="nombre" type="text" placeholder="Persona de contacto" class="w-full rounded-2xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-blue-600 focus:ring-4 focus:ring-blue-100" />
+                  </div>
+                  <div>
+                    <label class="mb-2 block text-sm font-medium text-slate-700" for="telefono">Teléfono</label>
+                    <input id="telefono" type="tel" placeholder="Número de teléfono" class="w-full rounded-2xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-blue-600 focus:ring-4 focus:ring-blue-100" />
+                  </div>
+                </div>
+
+                <div>
+                  <label class="mb-2 block text-sm font-medium text-slate-700" for="email">Correo electrónico</label>
+                  <input id="email" type="email" placeholder="correo@empresa.com" class="w-full rounded-2xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-blue-600 focus:ring-4 focus:ring-blue-100" />
+                </div>
+
+                <div>
+                  <label class="mb-2 block text-sm font-medium text-slate-700" for="mensaje">Mensaje</label>
+                  <textarea id="mensaje" rows="4" placeholder="Cuéntanos brevemente tu consulta" class="w-full rounded-2xl border border-slate-300 px-4 py-3 text-sm outline-none transition focus:border-blue-600 focus:ring-4 focus:ring-blue-100"></textarea>
+                </div>
+
+                <button type="button" class="w-full rounded-full bg-slate-950 px-6 py-4 text-sm font-semibold text-white transition hover:bg-slate-800">
+                  Solicitar información
+                </button>
+
+                <p class="text-xs leading-6 text-slate-500">
+                  Este formulario es visual. Puedes integrarlo más adelante con el canal comercial o de contacto que decidas utilizar.
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-200 bg-white">
+    <div class="shell px-4 sm:px-6 lg:px-8 py-8">
+      <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+        <div class="flex items-center gap-3">
+          <div class="brand-mark"><span>AL</span></div>
+          <div>
+            <div class="text-sm font-semibold text-slate-800">Alueuropa Reciclado</div>
+            <div class="text-xs text-slate-500">Gestión de chatarra de aluminio para talleres y almacenes</div>
+          </div>
+        </div>
+
+        <div class="text-sm text-slate-500">
+          © 2026 Alueuropa · Carretera Nacional IV, Km 32, 28350 Ciempozuelos, Madrid · +34 91 895 58 00 · alueuropa@alueuropa.com
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
